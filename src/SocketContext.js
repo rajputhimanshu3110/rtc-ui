@@ -3,8 +3,8 @@ import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
 
 const SocketContext = createContext();
-
-const socket = io("http://localhost:5000");
+let contextUrl = process.env.REACT_APP_API_ENDPOINT;
+const socket = io(contextUrl);
 
 const ContextProvider = ({ children }) => {
     const [stream, setStream] = useState(null);
